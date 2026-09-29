@@ -41,4 +41,4 @@ El flujo tiene cuatro pasos: clasificar la entrada, diagnosticar con evidencia, 
 
 ## Claude Code en la web
 
-Los contenedores de la web son efímeros, así que hay que correr `./install.sh` al inicio de cada sesión que tenga este repo. Para automatizarlo, añade un hook `SessionStart` en `.claude/settings.json` que ejecute `"$CLAUDE_PROJECT_DIR"/install.sh --quiet`.
+Los contenedores de la web son efímeros. Por eso el repo incluye un hook `SessionStart` (`.claude/settings.json` → `.claude/hooks/session-start.sh`) que corre `install.sh --quiet` al abrir cualquier sesión con este repo cargado. En sesiones con otros repos, añade `noslop` como repo adicional o corre `./install.sh` a mano.
